@@ -1,3 +1,110 @@
 <!DOCTYPE html>
-<meta charset="utf-8">
-<meta http-equiv="refresh" content="0; URL=https://m.vip19j88.com/">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check and Load URL</title>
+</head>
+<body>
+<div id="loading">Checking URLs, please wait...</div>
+<script>
+    // Array of URLs to check
+    const urls =  [
+        "https://m.vipj88at.com",
+        "https://m.vipj88np.com",
+        "https://m.vipj88qv.com",
+        "https://m.vip1j88.com",
+        "https://m.vip15j88.com",
+        "https://m.vip16j88.com",
+        "https://m.vip17j88.com",
+        "https://m.vip19j88.com",
+        "https://m.vip28j88.com",
+        "https://m.vipj88at.com",
+        "https://ksgdvz.buzz",
+        "https://h6033a.buzz/",
+        "https://uc5ywj.ink/",
+        "https://kyaiia.buzz/",
+        "https://jo0hya.buzz/",
+        "https://inwcm8.buzz/",
+        "https://xw4hy8.ink/",
+        "https://mwv1uw.ink/",
+        "https://uc5ywj.ink/",
+        "https://zd5197.ink/",
+        "https://fgehbm.buzz/",
+        "https://jo0hya.buzz/",
+        "https://co1p7j.buzz/",
+        "https://6imfie.buzz/",
+        "https://i8nmd1.buzz/",
+        "https://xw4hy8.ink/",
+        "https://92z8pr.buzz/",
+        "https://zd5197.ink/",
+        "https://uc5ywj.ink/",
+        "https://co1p7j.buzz/",
+        "https://h6033a.buzz/",
+        "https://effhnn.buzz/",
+        "https://92z8pr.buzz/",
+        "https://fa1n8u.buzz/",
+        "https://xw4hy8.ink/",
+        "https://fgehbm.buzz/",
+        "https://mwv1uw.ink/",
+        "https://92z8pr.buzz/",
+        "https://7bxidz.ink/",
+        "https://inwcm8.buzz/",
+        "https://7bxidz.ink/",
+        "https://6xftrw.buzz/",
+        "https://jo0hya.buzz/",
+        "https://kyaiia.buzz/",
+        "https://7mjbad.buzz/",
+        "https://cc11yj.buzz/",
+        "https://inwcm8.buzz/",
+        "https://mwv1uw.ink/",
+        "https://jo0hya.buzz/",
+        "https://6xftrw.buzz/",
+        "https://qojoli.ink/",
+        "https://kyaiia.buzz/",
+        "https://xw4hy8.ink/",
+        "https://zd5197.ink/",
+        "https://qojoli.ink/",
+        "https://6imfie.buzz/",
+        "https://cc11yj.buzz/",
+        "https://7bxidz.ink/",
+        "https://uc5ywj.ink/",
+        "https://6xftrw.buzz/",
+        "https://i8nmd1.buzz/",
+        "https://kyaiia.buzz/",
+        "https://zd5197.ink/",
+        "https://7bxidz.ink/",
+        "https://inwcm8.buzz/",
+        "https://effhnn.buzz/",
+        "https://jo0hya.buzz/",
+        "https://6imfie.buzz/"
+    ];
+
+    // Function to check if a URL returns a 200 OK status
+    async function checkURLStatus(url) {
+        try {
+            const response = await fetch(url, { method: 'HEAD' });
+            return response.status === 200;
+        } catch (error) {
+            return false;
+        }
+    }
+
+    // Function to check each URL in the array and load the first valid one
+    async function checkLinksAndLoad() {
+        const promises = urls.map(url => checkURLStatus(url).then(isValid => ({ url, isValid })));
+
+        for await (const result of promises) {
+            if (result.isValid) {
+                window.location.href = result.url;  // Redirect to the first valid URL
+                return;
+            }
+        }
+        document.getElementById('loading').innerText = "No valid URL found.";
+    }
+
+    // Start checking URLs when the page loads
+    checkLinksAndLoad();
+</script>
+</body>
+</html>
